@@ -37,6 +37,9 @@ class MatchesController < ApplicationController
     @match.score_winner = score_winner
     respond_to do |format|
       if @match.save
+        @notification = Notification.new(message: "new")
+        @notification.save
+        ActionCable.server.broadcast 'notification', @match
         format.html { redirect_to classification_matches_url, notice: "Match was successfully created." }
         format.json { render :show, status: :created, location: @match }
       else

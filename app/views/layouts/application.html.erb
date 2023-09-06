@@ -12,6 +12,45 @@
   </head>
 
   <body class="relative overflow-hidden max-h-screen bg-zinc-100">
+    <header class="fixed right-0 top-0 left-60 bg-white py-3 px-4 h-16">
+      <nav class="">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div class="flex flex-shrink-0 items-center">
+              
+              </div>
+              
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div class="dropdown inline-block relative">
+                <button type="button" class="inline-flex items-center relative rounded-none p-1 ">
+                  
+                  <div class="relative w-12 h-12">
+                    <svg class="h-full w-full rounded-full border border-gray-100 shadow-sm" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    </svg>
+                    <div id="notif_counter" class="absolute bottom-7 left-6 h-7 w-7 my-1 border-2 border-white rounded-full text-white bg-red-500 z-2">
+                      <%= notification_count  %>
+                    </div>
+                  </div>
+
+                </button>
+                <ul class="w-64 dropdown-menu absolute right-0 hidden text-gray-700 pt-1">
+                  <li class="">
+                    <a id="open_notification" class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="<%= classification_matches_path  %>">
+                      <%= notification_count  %> new result available
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+  
+    </header>
     <aside class="fixed inset-y-0 left-0 bg-white shadow-md max-h-screen w-80">
       <div class="flex flex-col justify-between h-full">
         <div class="flex-grow">
@@ -74,4 +113,11 @@
       </div>
     </main>
   </body>
+  <script>
+    let open_notification = document.getElementById('open_notification');
+    open_notification.addEventListener("click", function(e) {
+      console.log("ee",e)
+    });
+  
+  </script>
 </html>
