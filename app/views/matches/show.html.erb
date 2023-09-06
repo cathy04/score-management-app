@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <%#= link_to "Edit this match", edit_match_path(@match) %> |
+  <%= link_to "Back to matches", matches_path %>
+
+  <%#= button_to "Destroy this match", @match, method: :delete %>
+</div>
+
+
+<div class="p-20">
+  <div class="bg-white p-6 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold mb-2 text-gray-800">Match details</h2>
+    <p class="text-gray-700">Team 1 <%= @match.team_1 %> score <%= @match.score_1 %> </p>
+    <p class="text-gray-700">Team 2 <%= @match.team_2 %> score <%= @match.score_2 %> </p>
+    <p class="text-gray-700">winner <%= @match.winner %> score <%= @match.score_winner %> </p>
+    <div class="mt-4">
+      <p class="text-gray-700"><%= @match.details %></p>
+    </div>
+  </div>
+</div>

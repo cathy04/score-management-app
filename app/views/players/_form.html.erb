@@ -1,0 +1,43 @@
+<%= form_with(model: player, class: "contents") do |form| %>
+  <% if player.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+        <% player.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :fullname %>
+    <%= form.text_field :fullname, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :age %>
+    <%= form.number_field :age, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :post %>
+    <%= form.text_field :post, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :team %>
+    <select name="player[team_id]" class="block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" id="player_team_id">
+      <option value="">Select team</option>
+      <option value="1" >Alpha</option>
+      <option value="4">Gamma</option>
+      <option value="3">Beta</option>
+      <option value="2">Omega</option>
+    </select>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

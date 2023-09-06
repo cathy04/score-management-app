@@ -1,0 +1,23 @@
+<div id="<%= dom_id team %>">
+  
+    <div class="w-full rounded overflow-hidden shadow-lg">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Team: <%= team.name %> </div>
+        <p class="text-gray-700 text-base">
+          <%= team.details %>
+        </p>
+      </div>
+      <div class="grid grid-cols-3 gap-4 px-6 pt-4 pb-2">
+        <% team.players.each do |player|  %>
+          <div class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <%= player.fullname  %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  <%# if action_name != "show" %>
+    <%#= link_to "Show this team", team, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%#= link_to 'Edit this team', edit_team_path(team), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <%# end %>
+</div>

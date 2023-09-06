@@ -1,0 +1,98 @@
+<div class="max-w-screen-md mx-auto">
+  <div class="text-center mb-16">
+    <h3 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-gray-900">
+      Add score of match</span>
+    </h3>
+  </div>
+  <%= form_with(model: match, class: "w-full") do |form| %>
+    <% if match.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(match.errors.count, "error") %> prohibited this match from being saved:</h2>
+  
+        <ul>
+          <% match.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <%= form.label :team_1, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+        <select name="match[team_1]" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-slate-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="match_team_1">
+          <option value="">Select team</option>
+          <option value="alpha" >Alpha</option>
+          <option value="gamma">Gamma</option>
+          <option value="beta">Beta</option>
+          <option value="omega">Omega</option>
+        </select>
+        </div>
+      <div class="w-full md:w-1/2 px-3">
+        <%= form.label :score_1, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+        <%= form.text_field :score_1 , class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-slate-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white", type: "number" %>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <%= form.label :team_2, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+        <select name="match[team_2]" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-slate-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="match_team_2">
+          <option value="">Select team</option>
+          <option value="alpha" >Alpha</option>
+          <option value="gamma">Gamma</option>
+          <option value="beta">Beta</option>
+          <option value="omega">Omega</option>
+        </select>
+      </div>
+      <div class="w-full md:w-1/2 px-3">
+        <%= form.label :score_2, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+        <%= form.text_field :score_2 , class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-slate-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white", type: "number" %>
+      </div>
+    </div>
+    
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <%= form.label :details, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+        <%= form.text_area :details, rows: "10", class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+      </div>
+      <div class="flex justify-between w-full px-3">
+        <%= form.submit class:"shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+  
+
+<script>
+  const teamSelect1 = document.getElementById('match_team_1');
+  const teamSelect2 = document.getElementById('match_team_2');
+
+  teamSelect1.addEventListener('change', function () {
+    const selectedValue = teamSelect1.value;
+
+    for (let i = 0; i < teamSelect2.options.length; i++) {
+      const option = teamSelect2.options[i];
+      if (option.value === selectedValue) {
+        option.disabled = true;
+      } else {
+        option.disabled = false;
+      }
+    }
+  });
+
+  teamSelect2.addEventListener('change', function () {
+    const selectedValue = teamSelect2.value;
+
+    for (let i = 0; i < teamSelect1.options.length; i++) {
+      const option = teamSelect1.options[i];
+      if (option.value === selectedValue) {
+        option.disabled = true;
+      } else {
+        option.disabled = false;
+      }
+    }
+  });
+</script>
+
