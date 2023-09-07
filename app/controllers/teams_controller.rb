@@ -53,6 +53,8 @@ class TeamsController < ApplicationController
 
   # DELETE /teams/1 or /teams/1.json
   def destroy
+    players = Player.where(team_id: @team)
+    players.destroy_all
     @team.destroy
 
     respond_to do |format|

@@ -72,6 +72,23 @@ class MatchesController < ApplicationController
     end
   end
 
+  def export_report
+    @matches = Match.all
+    classification()
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Report",
+        template: "matches/export_report",
+        formats: [:html],
+        disposition: :inline,
+        encoding: 'UTF-8',
+        layout: 'pdf',
+        page_size: 'A4'
+      end
+    end
+  end
+
   # PATCH/PUT /matches/1 or /matches/1.json
   def update
     respond_to do |format|

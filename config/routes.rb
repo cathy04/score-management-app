@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   resources :matches do
     collection do
       get 'classification', to: 'matches#classification', as: 'classification'
+      get 'export_report', to: 'matches#export_report', as: 'export_report'
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "matches#index"
 end

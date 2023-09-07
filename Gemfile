@@ -16,7 +16,8 @@ gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 
 gem 'pg', '~> 1.4', '>= 1.4.3'
-
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 

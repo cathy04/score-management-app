@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report</title>
+        <style>
+            body {
+            width: 210mm; /* Largeur de la page A4 */
+            margin: 0 auto; /* Centrer le contenu sur la page */
+            font-family: Arial, sans-serif;
+            }
+            
+            #filterTable {
+            border-collapse: collapse; /* Collapse borders */
+            width: 800px; /* Full-width */
+            border: 1px solid #ddd; /* Add a grey border */
+            font-size: 18px; /* Increase font-size */
+            }
+
+            #filterTable th, #filterTable td {
+            text-align: left; /* Left-align text */
+            padding: 12px; /* Add padding */
+            }
+
+            #filterTable tr {
+            /* Add a bottom border to all table rows */
+            border-bottom: 1px solid #ddd;
+            }
+
+            #filterTable tr.header, #filterTable tr:hover {
+            /* Add a grey background color to the table header and on hover */
+            background-color: #f1f1f1;
+            }
+
+            .show {
+            display: block;
+            }
+
+            .container {
+            margin-top: 20px;
+            overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <%= yield %>
+    </body>
+</html>

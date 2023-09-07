@@ -40,7 +40,7 @@
                 <ul class="w-64 dropdown-menu absolute right-0 hidden text-gray-700 pt-1">
                   <% notifications.each do |notification|  %>
                     <li class="bg-gray-200">
-                      <%= button_to 'new result available', notification_path(@notification), method: :delete, class: "w-full rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" %>
+                      <%= button_to 'new result available', notification_path(notification), method: :delete, class: "w-full rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" %>
                     </li>
                   <% end  %>
                 </ul>
@@ -99,6 +99,13 @@
                   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                   </svg> Team management
+                <% end %>
+              </li>
+              <li>
+                <%= link_to export_report_matches_path(format: :pdf), class: 'flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4' do %>
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                  </svg> Export report
                 <% end %>
               </li>
             </ul>
