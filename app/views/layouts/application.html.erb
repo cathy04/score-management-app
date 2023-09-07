@@ -31,18 +31,18 @@
                     <svg class="h-full w-full rounded-full border border-gray-100 shadow-sm" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                     </svg>
-                    <div id="notif_counter" class="absolute bottom-7 left-6 h-7 w-7 my-1 border-2 border-white rounded-full text-white bg-red-500 z-2">
+                    <div id="notif_counter" class="absolute bottom-7 left-6 h-7 w-7 my-1 border-2 border-white rounded-full text-white bg-yellow-700 z-2">
                       <%= notification_count  %>
                     </div>
                   </div>
 
                 </button>
                 <ul class="w-64 dropdown-menu absolute right-0 hidden text-gray-700 pt-1">
-                  <li class="">
-                    <a id="open_notification" class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="<%= classification_matches_path  %>">
-                      <%= notification_count  %> new result available
-                    </a>
-                  </li>
+                  <% notifications.each do |notification|  %>
+                    <li class="bg-gray-200">
+                      <%= button_to 'new result available', notification_path(@notification), method: :delete, class: "w-full rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" %>
+                    </li>
+                  <% end  %>
                 </ul>
               </div>
             </div>
@@ -60,7 +60,7 @@
           <div class="p-4">
             <ul class="space-y-1">
               <li>
-                <%= link_to matches_path, class: 'flex items-center bg-yellow-200 rounded-xl font-bold text-sm text-yellow-900 py-3 px-4' do %>
+                <%= link_to matches_path, class: 'flex items-center bg-white hover:bg-yellow-50 active:bg-red-100 rounded-xl font-bold text-sm text-gray-900 py-3 px-4' do %>
                   <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
                     <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
                   </svg>Match
@@ -74,7 +74,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to teams_path, class: 'flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4' do %>
+                <%= link_to list_players_teams_path, class: 'flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4' do %>
                   <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
                     <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
                   </svg>Teams
@@ -95,10 +95,10 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to matches_path, class: 'flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4' do %>
+                <%= link_to teams_path, class: 'flex bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4' do %>
                   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                  </svg> Notifications
+                  </svg> Team management
                 <% end %>
               </li>
             </ul>
@@ -113,11 +113,5 @@
       </div>
     </main>
   </body>
-  <script>
-    let open_notification = document.getElementById('open_notification');
-    open_notification.addEventListener("click", function(e) {
-      console.log("ee",e)
-    });
   
-  </script>
 </html>

@@ -3,12 +3,15 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Teams</h1>
-    <%#= link_to 'New team', new_team_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  <div class="flex justify-between items-center mt-16 mb-4">
+    <h1 class="font-bold text-4xl text-yellow-700">Teams</h1>
+    <div class="inline-flex space-x-4">
+      <%= link_to 'New team', new_team_path, class: "rounded-lg py-3 px-5 bg-yellow-700 text-white block font-medium" %>
+      <%= link_to 'New player', new_player_path, class: "rounded-lg py-3 px-5 bg-yellow-700 text-white block font-medium" %>
+    </div>
   </div>
-
-  <div id="teams" class="min-w-full mt-8">
+  <hr>
+  <div id="teams" class="min-w-full mt-16">
     <div class="grid grid-cols-2 gap-8 mx-24">
       <%= render @teams %>
       

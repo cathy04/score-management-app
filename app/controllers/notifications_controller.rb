@@ -52,7 +52,7 @@ class NotificationsController < ApplicationController
     @notification.destroy
 
     respond_to do |format|
-      format.html { redirect_to notifications_url, notice: "Notification was successfully destroyed." }
+      format.html { redirect_to classification_matches_path, notice: "Notification was successfully destroyed." }
       format.json { head :no_content }
     end
   end

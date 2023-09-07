@@ -3,11 +3,11 @@ class TeamsController < ApplicationController
 
   # GET /teams or /teams.json
   def index
-    p @teams = Team.all
-    # @alpha_players = Player.where(team: "Alpha")
-    # @beta_players = Player.where(team: "Alpha")
-    # @alpha_players = Player.where(team: "Alpha")
-    # @alpha_players = Player.where(team: "Alpha")
+    @teams = Team.all
+  end
+
+  def list_players
+    @teams = Team.all
   end
 
   # GET /teams/1 or /teams/1.json
