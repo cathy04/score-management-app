@@ -21,6 +21,8 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* Rails db:migrate
+* Run bundle
 
-* Rails db:seed
+* Run rails db:migrate
+
+* Run rails db:seed (optinal)
