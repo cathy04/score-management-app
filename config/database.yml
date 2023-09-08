@@ -15,8 +15,8 @@ default: &default
 development:
   <<: *default
   database: score_db
-  username: cathy
-  password: cathy1996
+  username: root
+  password: password
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

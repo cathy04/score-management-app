@@ -53,7 +53,6 @@ class MatchesController < ApplicationController
     @matches = Match.all
     winners_counts = @matches.group(:winner).count
     @winners = winners_counts.sort_by { |_, count| -count }
-    @winners.length
     count = 0
     teams = ['alpha','gamma','beta','omega']
     if @winners.length < 4

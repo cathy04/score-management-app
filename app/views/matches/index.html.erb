@@ -38,11 +38,19 @@
         </tr>
       </thead>
       <tbody>
-        <% @matches.each do |match| %>
-          <%= render match %>
-          <p>
-            <%#= link_to "Show this match", match %>
-          </p>
+        <% if @matches.present? %>
+          <% @matches.each do |match| %>
+            <%= render match %>
+            <p>
+              <%#= link_to "Show this match", match %>
+            </p>
+          <% end %>
+        <% else %>
+          <td colspan="6" class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <p class=" text-xl font-bold uppercase text-gray-900 whitespace-no-wrap">
+              No data yet
+            </p>
+          </td>
         <% end %>
       </tbody>
     </table> 
