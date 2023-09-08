@@ -1,0 +1,36 @@
+<h2 style="font-size:32px; text-align:center; text-decoration:underline">Match and scores</h2>
+<table id="filterTable">
+  <tr class="header">
+    <th style="width:20%;">Team 1</th>
+    <th style="width:20%;">Score Team 1</th>
+    <th style="width:20%;">Score Team 2</th>
+    <th style="width:20%;">Team 2</th>
+    <th style="width:20%;">Winner</th>
+  </tr>
+  <% @matches.each do |match| %>
+    <tr class="cars">
+        <td><%= match.team_1 %></td>
+        <td><%= match.score_1 %></td>
+        <td><%= match.score_2 %></td>
+        <td><%= match.team_2 %></td>
+        <td><%= match.winner %></td>
+    </tr>
+  <% end %>
+  
+</table>
+
+<h2 style="font-size:32px; text-align:center; text-decoration:underline">Classification</h2>
+
+<table id="filterTable">
+  <tr class="header">
+    <th style="width:50%;">Teams</th>
+    <th style="width:50%;">Points</th>
+  </tr>
+  <% @winners.each do |winner| %>
+    <tr class="cars">
+        <td><%= winner[0] %></td>
+        <td><%= winner[1] %></td>
+    </tr>
+  <% end %>
+  
+</table>

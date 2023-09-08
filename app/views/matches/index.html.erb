@@ -1,0 +1,58 @@
+<div class="w-full mt-16">
+ 
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl text-yellow-700">Matches</h1>
+    <%#= link_to 'New score', new_match_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <div id="matches" class="min-w-full mt-8">
+    <table class="min-w-full leading-normal">
+      <thead>
+        <tr>
+          <th
+            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+          >
+            Team 1
+          </th>
+          <th
+            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+          >
+            Score Team 1
+          </th>
+          <th
+            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+          >
+            Score Team 2
+          </th>
+          <th
+            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+          >
+            Team 2
+          </th>
+          <th
+            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+          >Details du match</th>
+          <th
+            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+          >Share</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @matches.present? %>
+          <% @matches.each do |match| %>
+            <%= render match %>
+            <p>
+              <%#= link_to "Show this match", match %>
+            </p>
+          <% end %>
+        <% else %>
+          <td colspan="6" class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <p class=" text-xl font-bold uppercase text-gray-900 whitespace-no-wrap">
+              No data yet
+            </p>
+          </td>
+        <% end %>
+      </tbody>
+    </table> 
+  </div>
+</div>

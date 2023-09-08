@@ -1,0 +1,17 @@
+<div class="w-full">
+  <div class="flex justify-between items-center mt-16 mb-4">
+    <h1 class="font-bold text-4xl text-yellow-700">Teams</h1>
+    <div class="inline-flex space-x-4">
+      <%= link_to 'New team', new_team_path, class: "rounded-lg py-3 px-5 bg-yellow-700 text-white block font-medium" %>
+      <%= link_to 'New player', new_player_path, class: "rounded-lg py-3 px-5 bg-yellow-700 text-white block font-medium" %>
+    </div>
+  </div>
+  <hr>
+  <div id="teams" class="min-w-full mt-16">
+    <div class="grid grid-cols-2 gap-8 mx-24">
+      <%= render @teams %>
+      
+    </div>
+  </div>
+
+</div>

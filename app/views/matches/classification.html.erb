@@ -1,0 +1,55 @@
+
+<div class="mt-16">
+    <h1 class="text-center text-bold text-xl">Classification</h1>
+</div>
+<div class="flex justify-evenly">
+    <div class="w-[70%]">
+        <% if @winners.present? %>
+            <table class=" w-full">
+                <thead>
+                    <tr>
+                        <th
+                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                        >
+                            Teams
+                        </th>
+                        <th
+                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                        >
+                            Points
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @winners.each do |winner| %>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10">
+                                    <img
+                                        class="w-full h-full rounded-full"
+                                        src="https://pre00.deviantart.net/c875/th/pre/f/2018/026/5/a/messi_png_by_flashdsg-dc1779k.png"
+                                        alt=""
+                                    />
+                                    </div>
+                                    <div class="ml-3">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        <%= winner[0] %>
+                                    </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap"> <%= winner[1] %></p>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        <% else %>
+            <p class="text-center mt-80 text-xl font-bold uppercase text-gray-900 whitespace-no-wrap">
+              No data yet
+            </p>
+        <% end %>
+    </div>
+</div>
