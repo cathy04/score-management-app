@@ -26,3 +26,5 @@ Things you may want to cover:
 * Run rails db:migrate
 
 * Run rails db:seed (optinal)
+  
+* In terminal run ./bin/dev
